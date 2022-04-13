@@ -1,5 +1,5 @@
 # Trainable
-a platform to buy and sell workout equipments
+a platform to buy and sell workout equipments using laravel
 
 ## features
 1. add, update & delete an offer
