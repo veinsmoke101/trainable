@@ -19,7 +19,7 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::get('/demands', function () {
-    return view('register');
+    return view('demands');
 });
 
 
