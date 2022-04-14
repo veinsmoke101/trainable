@@ -1,0 +1,94 @@
+@use 'base';
+@use 'auth';
+
+body{
+    @include base.flexRow(center,center)
+}
+.greeting{
+    @include base.tablet(){
+        display: none;
+    }
+    width: 70%;
+    @include base.flexColumn(center,center);
+    .greeting__illustration{
+        width: 320px;
+        height: auto;
+    }
+    .greeting__title{
+        font-size: 54px;
+        color : base.$neon_red;
+        @include base.large-tablet{
+            font-size: 52px;
+        }
+        .greeting__span{
+            color: white;
+            font-size: 52px;
+        }
+    }
+
+}
+.invalid-feedback{
+    color: base.$neon_red;
+}
+.sideForm{
+    width: 30%;
+    background-color: white;
+    height: 100%;
+    @include base.flexColumn(center, center);
+    .sideForm__container{
+        @include base.flexColumn(flex-start, center);
+        width: 80%;
+        margin-top: 10%;
+        height: 80%;
+        .sideForm__form{
+            @include base.flexColumn(flex-start, center);
+            width: 100%;
+            height: auto;
+            .sideForm__input{
+                margin-bottom: 6px;
+                padding: 6px 20px;
+                width: 100%;
+                border:1px solid #c1c1c1;
+            }
+            .sideForm__label{
+                margin: 10px 0;
+            }
+            .sideForm__forgotPassword{
+                color: base.$neon_red;
+                margin: 10px 0;
+            }
+            .sideForm__submit {
+                width: 100%;
+                padding: 6px 20px;
+                background-color: base.$neon_red;
+                color: white;
+                border-radius: 6px;
+                border: none;
+                margin-top: 10px;
+            }
+
+        }
+        hr{
+            width: 100%;
+            margin: 15px 0;
+
+        }
+        .sideForm__register a{
+            color: base.$neon_red;
+        }
+        .sideForm__heading{
+            .sideForm__title{
+                font-size:28px ;
+                font-weight: bolder;
+            }
+            .sideForm__subTitle{
+                font-size: 12px;
+                margin-bottom: 10px;
+                color: #c1c1c1;
+            }
+        }
+    }
+    @include base.tablet{
+        width: 100%;
+    }
+}

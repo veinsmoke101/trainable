@@ -1,0 +1,33 @@
+@use 'base';
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 0, 0, 0.13);
+}
+.navbar{
+    @include base.flexRow(center,space-between);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    //background-color: white;
+
+    .navbar__logo{
+        width: 100px;
+        height: auto;
+        margin-left: 25px;
+    }
+    .navbar__links{
+        list-style: none;
+        @include base.flexRow(center,space-around);
+        width: 20%;
+        @include base.phone{
+            width: 50%;
+        }
+        .navbar__item a{
+            color: black
+        }
+    }
+}
