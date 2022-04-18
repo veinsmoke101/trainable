@@ -1,1 +1,165 @@
 @use 'post';
+@use 'base';
+
+.demand {
+    margin-top: 70px;
+    @include base.flexColumn(center, center);
+    width: 80%;
+
+    &__add {
+        margin-top: 30px;
+        width: 70%;
+        background-color: white;
+        margin-bottom: 20px;
+        height: 260px;
+        border-radius: 10px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        @include base.flexRow(center, center);
+        form{
+            width: 90%;
+            margin: 20px 0;
+            @include base.flexColumn(flex-start, center);
+            label{
+                font-size: 16px;
+            }
+            input{
+                width: 100%;
+                padding: 10px;
+                outline: none;
+                border-radius: 10px;
+                border: 1px solid #c1c1c1;
+                &[type='submit']{
+                    margin-top: 10px;
+                    background-color: base.$neon_red;
+                    color: white;
+                    border: none;
+                }
+            }
+        }
+    }
+
+    &__header{
+        text-align: center;
+    }
+    &__title{
+        font-size: 54px;
+        font-weight: bold;
+        color: base.$neon_red;
+    }
+    &__paragraph{
+        font-size: 20px;
+    }
+    &__posts{
+        width: 100%;
+        @include base.flexColumn(center, center);
+
+
+        .post{
+            border-radius: 10px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            background-color: white;
+            padding: 30px 20px;
+            margin-bottom: 20px;
+            width: 70%;
+            @include base.flexRow(flex-start, space-between);
+            &__authorImage{
+                width: 70px;
+                height: 70px;
+                margin-right: 10px;
+                img{
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+            }
+
+            &__authorJoined{
+                //font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            &__authorInfo{
+                @include base.flexColumn(flex-start,center);
+                width: auto;
+            }
+
+            &__authorName{
+                font-size: 20px;
+            }
+
+            &__more{
+                margin-left: auto;
+                color: base.$neon_red;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            &__title{
+                font-size: 16px;
+            }
+
+            &__body{
+               @include base.flexColumn(flex-start, center);
+                width: 100%;
+            }
+
+            &__authorContainer{
+                width: 100%;
+                @include base.flexRow(flex-start, center);
+                margin-bottom: 20px;
+                position: relative;
+
+                .update-delete{
+                    background-color: lightgray;
+                    position: absolute;
+                    top: 20px;
+                    right: 0;
+                    width: 100px;
+                    height: 60px;
+                    @include base.flexColumn(center,center);
+                    transform: scale(0);
+                    border-radius:10px ;
+
+                    &.active{
+                        transform: scale(1);
+                    }
+                    form{
+                        @include base.flexColumn(flex-start,center);
+                        button{
+                            background-color: transparent;
+                            width: 80px;
+                            height: 30px;
+                            border: none;
+                            text-align: start;
+                            cursor: pointer;
+                            color: black;
+                            font-weight: bold;
+
+                        }
+                    }
+                }
+            }
+
+            &__image img{
+                width: 100%;
+                height: auto;
+                border-radius:10px;
+            }
+            &__description {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+        }
+    }
+
+
+
+
+
+}
+
+
+
+

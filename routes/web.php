@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,11 @@ Route::get('/', function () {
     return view('login');
 })->middleware('auth');
 
-Route::get('/demands', function () {
-    return view('demands');
-});
+Route::get('/demands', [PostController::class,'demand'] );
+Route::post('/demands', [PostController::class,'storeDemand'] );
+Route::get('/demands/{post}/edit', [PostController::class,'editDemand']);
+Route::put('/demands/{post}', [PostController::class,'updateDemand']);
+Route::delete('/demands/{post}', [PostController::class,'destroyDemand']);
 
 
 Auth::routes();

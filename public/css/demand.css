@@ -7,19 +7,29 @@
   font-size: 12px;
 }
 
+body {
+  background-color: rgba(20, 39, 113, 0.05);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 60px;
+  background-color: white;
 }
 .navbar .navbar__logo {
-  width: 100px;
+  width: 80px;
   height: auto;
   margin-left: 25px;
 }
@@ -38,4 +48,176 @@
 }
 .navbar .navbar__links .navbar__item a {
   color: black;
+}
+
+.post__authorImage {
+  width: 25px;
+  height: 25px;
+}
+
+.demand {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+.demand__add {
+  margin-top: 30px;
+  width: 70%;
+  background-color: white;
+  margin-bottom: 20px;
+  height: 260px;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.demand__add form {
+  width: 90%;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.demand__add form label {
+  font-size: 16px;
+}
+.demand__add form input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid #c1c1c1;
+}
+.demand__add form input[type=submit] {
+  margin-top: 10px;
+  background-color: #FF0000;
+  color: white;
+  border: none;
+}
+.demand__header {
+  text-align: center;
+}
+.demand__title {
+  font-size: 54px;
+  font-weight: bold;
+  color: #FF0000;
+}
+.demand__paragraph {
+  font-size: 20px;
+}
+.demand__posts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.demand__posts .post {
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+  padding: 30px 20px;
+  margin-bottom: 20px;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.demand__posts .post__authorImage {
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+}
+.demand__posts .post__authorImage img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.demand__posts .post__authorJoined {
+  margin-bottom: 10px;
+}
+.demand__posts .post__authorInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: auto;
+}
+.demand__posts .post__authorName {
+  font-size: 20px;
+}
+.demand__posts .post__more {
+  margin-left: auto;
+  color: #FF0000;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.demand__posts .post__title {
+  font-size: 16px;
+}
+.demand__posts .post__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+.demand__posts .post__authorContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+.demand__posts .post__authorContainer .update-delete {
+  background-color: lightgray;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 100px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  border-radius: 10px;
+}
+.demand__posts .post__authorContainer .update-delete.active {
+  transform: scale(1);
+}
+.demand__posts .post__authorContainer .update-delete form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.demand__posts .post__authorContainer .update-delete form button {
+  background-color: transparent;
+  width: 80px;
+  height: 30px;
+  border: none;
+  text-align: start;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+}
+.demand__posts .post__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.demand__posts .post__description {
+  width: 100%;
+  margin-bottom: 30px;
 }

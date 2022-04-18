@@ -13,8 +13,8 @@
 <nav class="navbar">
     <img class="navbar__logo" src="{{asset('images/trainable-logo.png')}}" alt="trainable-logo">
     <ul class="navbar__links">
-{{--        <li class="navbar__item"><a href="register">register</a></li>--}}
-{{--        <li class="navbar__item"><a href="login">login</a></li>--}}
+        {{--        <li class="navbar__item"><a href="register">register</a></li>--}}
+        {{--        <li class="navbar__item"><a href="login">login</a></li>--}}
     </ul>
 </nav>
 @yield('content')
