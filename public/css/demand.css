@@ -49,6 +49,12 @@ body {
 .navbar .navbar__links .navbar__item a {
   color: black;
 }
+.navbar .navbar__links .navbar__item form input {
+  border: none;
+  background-color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 .post__authorImage {
   width: 25px;
@@ -175,7 +181,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 20px;
   position: relative;
 }

@@ -29,6 +29,12 @@ body{
         .navbar__item a{
             color: black
         }
+        .navbar__item form input{
+            border: none;
+            background-color: white;
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
 }
 .post__authorImage{

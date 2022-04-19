@@ -11,11 +11,16 @@
 </head>
 <body>
 <nav class="navbar">
-    <img class="navbar__logo" src="{{asset('images/trainable-logo.png')}}" alt="trainable-logo">
+    <a href="/demands"><img class="navbar__logo" src="{{asset('images/trainable-logo.png')}}" alt="trainable-logo"></a>
     <ul class="navbar__links">
-        <li class="navbar__item"><a href="">{{ __('Demands') }}</a></li>
-        <li class="navbar__item"><a href="">{{ __('Offers') }}</a></li>
-        <li class="navbar__item"><a href="">{{ __('logout') }}</a></li>
+        <li class="navbar__item"><a href="/demands">{{ __('Demands') }}</a></li>
+        <li class="navbar__item"><a href="/offers">{{ __('Offers') }}</a></li>
+        <li class="navbar__item">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+                <input type="submit" value="{{ __('logout') }}" />
+            </form>
+        </li>
     </ul>
 </nav>
     @yield('content')

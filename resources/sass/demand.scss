@@ -106,7 +106,7 @@
 
             &__authorContainer{
                 width: 100%;
-                @include base.flexRow(flex-start, center);
+                @include base.flexRow(flex-start, flex-start);
                 margin-bottom: 20px;
                 position: relative;
 

@@ -25,7 +25,7 @@ class PostController extends Controller
                 'posts.image',
                 'posts.author',
                 'users.name'
-            )
+            )->where('type', 'demand')
             ->get();
         return view('demands', compact('posts'));
     }
@@ -38,16 +38,26 @@ class PostController extends Controller
     public function updateDemand(Post $post)
     {
 
+
         request()->validate([
             'title' => 'required',
             'description' => 'required'
         ]);
 
-        $post->update([
+        $fields = [
             'title' => request('title'),
             'description' => request('description')
-        ]);
-        return $this->demand();
+        ];
+
+        if(!empty(request()->file('image'))){
+            $newImageName = time() . '-IMG.' . request()->file('image')->extension();
+            \request()->file('image')->move(public_path('images'), $newImageName);
+
+            $fields['image'] = $newImageName;
+        }
+
+        $post->update($fields);
+        return redirect('/demands');
 
     }
 
@@ -55,13 +65,17 @@ class PostController extends Controller
     {
         request()->validate([
             'title' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg,webp|max:5048'
         ]);
+
+        $newImageName = time() . '-IMG.' . request()->file('image')->extension();
+        \request()->file('image')->move(public_path('images'), $newImageName);
 
         Post::create([
             'title' => request('title'),
             'description' => request('description'),
-            'image' => 'bla bla',
+            'image' => $newImageName,
             'type' => 'demand',
             'author' => Auth::id()
         ]);
@@ -73,4 +87,80 @@ class PostController extends Controller
         $post->delete();
         return redirect('/demands');
     }
+
+
+    public function offer()
+    {
+        $posts = DB::table('posts')
+            ->join('users','users.id', '=', 'posts.author')
+            ->select(
+                'posts.id',
+                'posts.title',
+                'posts.description',
+                'posts.image',
+                'posts.author',
+                'users.name'
+            )->where('type', 'offer')
+            ->get();
+        return view('offers', compact('posts'));
+    }
+
+    public function editOffer(Post $post)
+    {
+        return view('editOffer', compact('post'));
+    }
+
+    public function updateOffer(Post $post)
+    {
+
+
+        request()->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+        $fields = [
+            'title' => request('title'),
+            'description' => request('description')
+        ];
+
+        if(!empty(request()->file('image'))){
+            $newImageName = time() . '-IMG.' . request()->file('image')->extension();
+            \request()->file('image')->move(public_path('images'), $newImageName);
+
+            $fields['image'] = $newImageName;
+        }
+
+        $post->update($fields);
+        return redirect('/offers');
+
+    }
+
+    public function storeOffer()
+    {
+        request()->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg,webp|max:5048'
+        ]);
+
+        $newImageName = time() . '-IMG.' . request()->file('image')->extension();
+        \request()->file('image')->move(public_path('images'), $newImageName);
+
+        Post::create([
+            'title' => request('title'),
+            'description' => request('description'),
+            'image' => $newImageName,
+            'type' => 'offer',
+            'author' => Auth::id()
+        ]);
+        return redirect('/offers');
+    }
+
+    public function destroyOffer(Post $post)
+    {
+        $post->delete();
+        return redirect('/offers');
+    }
+
 }

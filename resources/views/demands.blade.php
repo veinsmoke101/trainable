@@ -4,19 +4,19 @@
 @section('content')
 <div class="demand">
     <section class="demand__header">
-        <h1 class="demand__title">Looking for a workout equipment ?</h1>
+        <h1 class="demand__title">DEMANDS</h1>
         <p class="demand__paragraph">You have came to the very right place</p>
     </section>
     <section class="demand__posts">
         <div class="demand__add">
-            <form action="/demands" method="POST">
+            <form action="/demands" method="POST" enctype="multipart/form-data">
                 @csrf
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" placeholder="Equipment title">
                 <label for="description">Description</label>
                 <input type="text" id="description" name="description" placeholder="Equipment description">
                 <label for="image">Image : </label>
-                <input type="file" id="image">
+                <input type="file" name="image" id="image">
                 <input type="submit" id="submit" value="Create demand">
             </form>
         </div>
@@ -28,7 +28,7 @@
                         <img src="{{ asset('images/Quincy-Larson-photo.jpg') }}" alt="">
                     </div>
                     <div class="post__authorInfo">
-                        <h2 class="post__authorName">{{ $post->name }} {{$post->id}}</h2>
+                        <h2 class="post__authorName">{{ $post->name }} </h2>
                         <small class="post__authorJoined"> Joined 12 SEP 2012.</small>
                     </div>
 
@@ -65,7 +65,7 @@
                     </p>
                 </div>
                 <div class="post__image">
-                    <img src="{{asset('images/616ee28ac6a5c10018895cb6.webp')}}" alt="post-image">
+                    <img src="{{asset("images/$post->image")}}" alt="post-image">
                 </div>
             </div>
         </div>
