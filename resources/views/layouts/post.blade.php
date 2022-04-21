@@ -24,5 +24,36 @@
     </ul>
 </nav>
     @yield('content')
+<footer>
+    <div class="container">
+        <div class="logo"><img src="{{ asset('images/trainable-logo.png')}} " alt=""></div>
+        <div class="links">
+            <div class="link">
+                <h5>
+                    About Us
+                </h5>
+                <p>
+                    shshgjljshdlsh sdljhlsdjhl hjlhsd
+                </p>
+            </div>
+            <div class="link">
+                <h5>
+                    Our Location
+                </h5>
+                <p>
+                    24 S Henry Street, Flandreau,sd, 53028  United States
+                </p>
+            </div>
+
+        </div>
+        <div class="contact">
+            <a style="text-decoration: none" href="#">Contact</a>
+        </div>
+    </div>
+    <div class="copyright">
+        © Copyright 2021 RentMeNow
+    </div>
+
+</footer>
 </body>
 </html>

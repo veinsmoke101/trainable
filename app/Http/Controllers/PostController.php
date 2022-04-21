@@ -32,13 +32,13 @@ class PostController extends Controller
 
     public function editDemand(Post $post)
     {
+        $this->authorize('update',$post);
         return view('editDemand', compact('post'));
     }
 
     public function updateDemand(Post $post)
     {
-
-
+        $this->authorize('update',$post);
         request()->validate([
             'title' => 'required',
             'description' => 'required'
@@ -84,6 +84,7 @@ class PostController extends Controller
 
     public function destroyDemand(Post $post)
     {
+        $this->authorize('delete',$post);
         $post->delete();
         return redirect('/demands');
     }
@@ -107,13 +108,14 @@ class PostController extends Controller
 
     public function editOffer(Post $post)
     {
+        $this->authorize('update',$post);
         return view('editOffer', compact('post'));
     }
 
     public function updateOffer(Post $post)
     {
 
-
+        $this->authorize('update',$post);
         request()->validate([
             'title' => 'required',
             'description' => 'required'
@@ -157,8 +159,12 @@ class PostController extends Controller
         return redirect('/offers');
     }
 
+    /**
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function destroyOffer(Post $post)
     {
+        $this->authorize('delete', $post);
         $post->delete();
         return redirect('/offers');
     }
