@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Demand extends Model
 {
-    protected $fillable = [
-        'title', 'description', 'image', 'author','typex'
-    ];
     use HasFactory;
 }

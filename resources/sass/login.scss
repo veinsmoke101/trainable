@@ -8,6 +8,7 @@ body{
     color: base.$neon_red;
 }
 .greeting{
+    font-size: 1rem;
     @include base.tablet(){
         display: none;
     }
@@ -71,7 +72,7 @@ body{
         .sideForm__register a{
             color: base.$neon_red;
         }
-        .sideForm__heading{
+        .sideForm__heading {
             .sideForm__title{
                 font-size:28px ;
                 font-weight: bolder;
